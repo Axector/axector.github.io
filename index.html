@@ -23,6 +23,11 @@
                 height: 100%;
             }
 
+            .CardButton {
+                height: 100%;
+                width: 100%;
+            }
+
             .FrontRotated {
                 transform: rotate3d(0, 1, 0, 90deg);
             }
@@ -38,6 +43,12 @@
                 
                 const backCard = document.getElementById("BackImage");
                 backCard.classList.remove("BackRotated");
+
+                const frontCardButton = document.getElementById("FrontCardButton");
+                backCardButton.style.display = 'none';
+
+                const backCardButton = document.getElementById("BackCardButton");
+                backCardButton.style.display = 'block';
             };
             
             const rotateBackCard = () => {
@@ -46,16 +57,24 @@
 
                 const frontCard = document.getElementById("FrontImage");
                 frontCard.classList.remove("FrontRotated");
+
+                const backCardButton = document.getElementById("BackCardButton");
+                backCardButton.style.display = 'none';
+                
+                const frontCardButton = document.getElementById("FrontCardButton");
+                backCardButton.style.display = 'block';
             };
         </script>
     </head>
     <body>
         <div class="ContentWrapper">
             <div class="ImageWrapper">
-                <img id="FrontImage" onclick="rotateFrontCard" class="Card" src="./card-front.png" alt="Card Front" />
+                <img id="FrontImage" class="Card" src="./card-front.png" alt="Card Front" />
+                <button id="FrontCardButton" class="CardButton" onclick="rotateFrontCard()"></button>
             </div>
             <div class="ImageWrapper">
-                <img id="BackImage" onclick="rotateBackCard" class="Card BackRotated" src="./card-back.png" alt="Card Back" />
+                <img id="BackImage" class="Card BackRotated" src="./card-back.png" alt="Card Back" />
+                <button id="BackCardButton" class="CardButton" onclick="rotateBackCard()"></button>
             </div>
         </div>
     </body>

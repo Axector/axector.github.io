@@ -2,7 +2,7 @@ body {
     margin: 0;
 }
 
-.ImageWrapper {
+.CardSideWrapper {
     display: flex;
     justify-content: center;
     position: absolute;
@@ -16,16 +16,18 @@ body {
 .Card {
     transition: transform 1s ease-in-out;
     height: 100%;
+    z-index: 5;
+}
+
+.Card.Flipped {
+    transform: rotate3d(0, 1, 0, 90deg);
 }
 
 .CardButton {
     background: none;
+    z-index: 10;
 }
 
-.FrontRotated {
-    transform: rotate3d(0, 1, 0, 90deg);
-}
-
-.BackRotated {
-    transform: rotate3d(0, 1, 0, -90deg);
+.CardButton.Hidden {
+    width: 0;
 }

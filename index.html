@@ -1,12 +1,82 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <title>anastasi.tattoo</title>
+        <style>
+            body {
+                margin: 0;
+            }
+
+            .ImageWrapper {
+                display: flex;
+                justify-content: center;
+                position: absolute;
+                width: 100vw;
+                height: 100vh;
+            }
+
+            .Card {
+                transition: transform 1s ease-in-out;
+                height: 100%;
+            }
+
+            .FrontRotated {
+                animation: frontCardFlip;
+            }
+
+            .BackRotated {
+                animation: backCardFlip;
+            }
+
+            @keyframes frontCardFlip {
+                0% {
+                    transform: rotate3d(0, 0, 0, 90deg);
+                }
+                99% {
+                    transform: rotate3d(0, 0.99, 0, 90deg);
+                }
+                100% {
+                    transform: rotate3d(0, 1, 0, 90deg);
+                    display: none;
+                }
+            }
+
+            @keyframes backCardFlip {
+                0% {
+                    transform: rotate3d(0, 0, 0, 90deg);
+                }
+                99% {
+                    transform: rotate3d(0, -0.99, 0, 90deg);
+                }
+                100% {
+                    transform: rotate3d(0, -1, 0, 90deg);
+                    display: none;
+                }
+            }
+        </style>
     </head>
     <body>
         <div class="ContentWrapper">
-            <img class="CardFront" src="./cardFront.png" alt="Card Front" />
-            <img class="CardBack" src="./cardBack.png" alt="Card Back" />
+            <div class="ImageWrapper">
+                <img id="FrontImage" class="Card" src="./card-front.png" alt="Card Front" />
+            </div>
+            <div class="ImageWrapper">
+                <img id="BackImage" class="Card BackRotated" src="./card-back.png" alt="Card Back" />
+            </div>
         </div>
+        <script>
+            const frontCard = document.getElementById("FrontImage");
+            const backCard = document.getElementById("BackImage");
+
+            frontCard.addEventListener("click", () => {
+                frontCard.classList.add("FrontRotated");
+                backCard.classList.remove("BackRotated");
+            });
+
+            backCard.addEventListener("click", () => {
+                backCard.classList.add("BackRotated");
+                frontCard.classList.remove("FrontRotated");
+            });
+        </script>
     </body>
 </html>

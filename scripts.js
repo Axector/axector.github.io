@@ -2,28 +2,32 @@ function rotateFrontCard () {
     const frontCard = document.getElementById("FrontImage");
     addClass(frontCard, "Flipped");
 
-    const backCard = document.getElementById("BackImage");
-    removeClass(backCard, "Flipped");
-
     const frontCardButton = document.getElementById("FrontCardButton");
     addClass(frontCardButton, "Hidden");
 
-    const backCardButton = document.getElementById("BackCardButton");
-    removeClass(backCardButton, "Hidden");
+    setTimeout(() => {
+        const backCard = document.getElementById("BackImage");
+        removeClass(backCard, "Flipped");
+
+        const backCardButton = document.getElementById("BackCardButton");
+        removeClass(backCardButton, "Hidden");
+    }, 500);
 };
 
 function rotateBackCard () {
     const backCard = document.getElementById("BackImage");
     addClass(backCard, "Flipped");
 
-    const frontCard = document.getElementById("FrontImage");
-    removeClass(frontCard, "Flipped");
-
     const backCardButton = document.getElementById("BackCardButton");
     addClass(backCardButton, "Hidden");
 
-    const frontCardButton = document.getElementById("FrontCardButton");
-    removeClass(frontCardButton, "Hidden");
+    setTimeout(() => {
+        const frontCard = document.getElementById("FrontImage");
+        removeClass(frontCard, "Flipped");
+
+        const frontCardButton = document.getElementById("FrontCardButton");
+        removeClass(frontCardButton, "Hidden");
+    }, 500);
 };
 
 function addClass (element, className) {

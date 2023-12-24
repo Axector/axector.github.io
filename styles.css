@@ -8,15 +8,18 @@ body {
     position: absolute;
 
     @media only screen and (min-width: 768px) {
-        height: 100vw;
+        height: 100vh;
     }
 }
 
 .Card {
     transition: transform 0.5s ease-in-out;
     height: 100%;
-    width: 100%;
     z-index: 5;
+
+    @media only screen and (min-width: 768px) {
+        width: 100%;
+    }
 }
 
 .Card.Flipped {
@@ -25,6 +28,9 @@ body {
 
 .CardButton {
     background: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
     z-index: 10;
 }
 

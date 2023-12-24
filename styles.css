@@ -16,9 +16,10 @@ body {
     transition: transform 0.1s ease-in-out;
     height: 100%;
     z-index: 5;
+    width: 100%;
 
     @media only screen and (min-width: 768px) {
-        width: 100%;
+        width: unset;
     }
 }
 

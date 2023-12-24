@@ -40,7 +40,7 @@ body {
     padding: 0;
     grid-row: 1;
     grid-column: 1;
-    -webkit-tap-highlight-color: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .CardButton:active,
@@ -53,7 +53,7 @@ body {
     outline: none;
     -webkit-appearance: none;
     appearance: none;
-    -webkit-tap-highlight-color: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .CardButton.Hidden {

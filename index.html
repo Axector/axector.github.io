@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <title>anastasi.tattoo</title>
-        <meta http-equiv="Permissions-Policy" content="interest-cohort=()">
+        <meta charset="utf-8">
         <style>
             body {
                 margin: 0;
@@ -25,8 +25,6 @@
             }
 
             .CardButton {
-                height: 100%;
-                width: 100%;
                 background: none;
             }
 
@@ -42,17 +40,17 @@
             function rotateFrontCard () {
                 const frontCard = document.getElementById("FrontImage");
                 addClass(frontCard, "FrontRotated");
-                
+
                 const backCard = document.getElementById("BackImage");
                 removeClass(backCard, "BackRotated");
 
                 const frontCardButton = document.getElementById("FrontCardButton");
-                backCardButton.style.display = 'none';
+                frontCardButton.style.display = 'none';
 
                 const backCardButton = document.getElementById("BackCardButton");
                 backCardButton.style.display = 'block';
             };
-            
+
             function rotateBackCard () {
                 const backCard = document.getElementById("BackImage");
                 addClass(backCard, "BackRotated");
@@ -62,20 +60,20 @@
 
                 const backCardButton = document.getElementById("BackCardButton");
                 backCardButton.style.display = 'none';
-                
+
                 const frontCardButton = document.getElementById("FrontCardButton");
-                backCardButton.style.display = 'block';
+                frontCardButton.style.display = 'block';
             };
 
             function addClass (element, className) {
                 if (!element.classList.contains(className)) {
-                    element.classList.addClass(className);
+                    element.classList.add(className);
                 }
             };
 
             function removeClass (element, className) {
                 if (element.classList.contains(className)) {
-                    element.classList.removeClass(className);
+                    element.classList.remove(className);
                 }
             };
         </script>
@@ -83,17 +81,20 @@
     <body>
         <div class="ContentWrapper">
             <div class="ImageWrapper">
-                <button id="FrontCardButton" class="CardButton" onclick="rotateFrontCard()">
+                <button id="FrontCardButton" class="CardButton">
                     <img id="FrontImage" class="Card" src="./card-front.png" alt="Card Front" />
                 </button>
             </div>
             <div class="ImageWrapper">
-                <button id="BackCardButton" class="CardButton" onclick="rotateBackCard()">
+                <button id="BackCardButton" class="CardButton">
                     <img id="BackImage" class="Card BackRotated" src="./card-back.png" alt="Card Back" />
                 </button>
             </div>
         </div>
         <script>
+            document.getElementById("FrontCardButton").addEventListener("click", rotateFrontCard);
+            document.getElementById("BackCardButton").addEventListener("click", rotateBackCard);
+
             rotateBackCard();
         </script>
     </body>

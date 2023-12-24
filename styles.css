@@ -1,0 +1,31 @@
+body {
+    margin: 0;
+}
+
+.ImageWrapper {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    height: 100vh;
+
+    @media only screen and (min-width: 768px) {
+        width: 100vw;
+    }
+}
+
+.Card {
+    transition: transform 1s ease-in-out;
+    height: 100%;
+}
+
+.CardButton {
+    background: none;
+}
+
+.FrontRotated {
+    transform: rotate3d(0, 1, 0, 90deg);
+}
+
+.BackRotated {
+    transform: rotate3d(0, 1, 0, -90deg);
+}

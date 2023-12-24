@@ -3,80 +3,8 @@
     <head>
         <title>anastasi.tattoo</title>
         <meta charset="utf-8">
-        <style>
-            body {
-                margin: 0;
-            }
-
-            .ImageWrapper {
-                display: flex;
-                justify-content: center;
-                position: absolute;
-                height: 100vh;
-
-                @media only screen and (min-width: 768px) {
-                    width: 100vw;
-                }
-            }
-
-            .Card {
-                transition: transform 1s ease-in-out;
-                height: 100%;
-            }
-
-            .CardButton {
-                background: none;
-            }
-
-            .FrontRotated {
-                transform: rotate3d(0, 1, 0, 90deg);
-            }
-
-            .BackRotated {
-                transform: rotate3d(0, 1, 0, -90deg);
-            }
-        </style>
-        <script>
-            function rotateFrontCard () {
-                const frontCard = document.getElementById("FrontImage");
-                addClass(frontCard, "FrontRotated");
-
-                const backCard = document.getElementById("BackImage");
-                removeClass(backCard, "BackRotated");
-
-                const frontCardButton = document.getElementById("FrontCardButton");
-                frontCardButton.style.display = 'none';
-
-                const backCardButton = document.getElementById("BackCardButton");
-                backCardButton.style.display = 'block';
-            };
-
-            function rotateBackCard () {
-                const backCard = document.getElementById("BackImage");
-                addClass(backCard, "BackRotated");
-
-                const frontCard = document.getElementById("FrontImage");
-                removeClass(frontCard, "FrontRotated");
-
-                const backCardButton = document.getElementById("BackCardButton");
-                backCardButton.style.display = 'none';
-
-                const frontCardButton = document.getElementById("FrontCardButton");
-                frontCardButton.style.display = 'block';
-            };
-
-            function addClass (element, className) {
-                if (!element.classList.contains(className)) {
-                    element.classList.add(className);
-                }
-            };
-
-            function removeClass (element, className) {
-                if (element.classList.contains(className)) {
-                    element.classList.remove(className);
-                }
-            };
-        </script>
+        <link rel="stylesheet" href="styles.css">
+        <script type="text/javascript" src="./scripts.js"/>
     </head>
     <body>
         <div class="ContentWrapper">
@@ -91,11 +19,6 @@
                 </button>
             </div>
         </div>
-        <script>
-            document.getElementById("FrontCardButton").addEventListener("click", rotateFrontCard);
-            document.getElementById("BackCardButton").addEventListener("click", rotateBackCard);
-
-            rotateBackCard();
-        </script>
+        <script type="text/javascript" src="./afterScripts.js" defer />
     </body>
 </html>

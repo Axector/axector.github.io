@@ -2,6 +2,7 @@
 <html lang="en">
     <head>
         <title>anastasi.tattoo</title>
+        <meta http-equiv="Permissions-Policy" content="interest-cohort=()">
         <style>
             body {
                 margin: 0;
@@ -26,6 +27,7 @@
             .CardButton {
                 height: 100%;
                 width: 100%;
+                background: none;
             }
 
             .FrontRotated {
@@ -36,13 +38,13 @@
                 transform: rotate3d(0, 1, 0, -90deg);
             }
         </style>
-        <script lang="javascript">
-            const rotateFrontCard = () => {
+        <script>
+            function rotateFrontCard () {
                 const frontCard = document.getElementById("FrontImage");
-                frontCard.classList.add("FrontRotated");
+                addClass(frontCard, "FrontRotated");
                 
                 const backCard = document.getElementById("BackImage");
-                backCard.classList.remove("BackRotated");
+                removeClass(backCard, "BackRotated");
 
                 const frontCardButton = document.getElementById("FrontCardButton");
                 backCardButton.style.display = 'none';
@@ -51,12 +53,12 @@
                 backCardButton.style.display = 'block';
             };
             
-            const rotateBackCard = () => {
+            function rotateBackCard () {
                 const backCard = document.getElementById("BackImage");
-                backCard.classList.add("BackRotated");
+                addClass(backCard, "BackRotated");
 
                 const frontCard = document.getElementById("FrontImage");
-                frontCard.classList.remove("FrontRotated");
+                removeClass(frontCard, "FrontRotated");
 
                 const backCardButton = document.getElementById("BackCardButton");
                 backCardButton.style.display = 'none';
@@ -64,18 +66,35 @@
                 const frontCardButton = document.getElementById("FrontCardButton");
                 backCardButton.style.display = 'block';
             };
+
+            function addClass (element, className) {
+                if (!element.classList.contains(className)) {
+                    element.classList.addClass(className);
+                }
+            };
+
+            function removeClass (element, className) {
+                if (element.classList.contains(className)) {
+                    element.classList.removeClass(className);
+                }
+            };
         </script>
     </head>
     <body>
         <div class="ContentWrapper">
             <div class="ImageWrapper">
-                <img id="FrontImage" class="Card" src="./card-front.png" alt="Card Front" />
-                <button id="FrontCardButton" class="CardButton" onclick="rotateFrontCard()"></button>
+                <button id="FrontCardButton" class="CardButton" onclick="rotateFrontCard()">
+                    <img id="FrontImage" class="Card" src="./card-front.png" alt="Card Front" />
+                </button>
             </div>
             <div class="ImageWrapper">
-                <img id="BackImage" class="Card BackRotated" src="./card-back.png" alt="Card Back" />
-                <button id="BackCardButton" class="CardButton" onclick="rotateBackCard()"></button>
+                <button id="BackCardButton" class="CardButton" onclick="rotateBackCard()">
+                    <img id="BackImage" class="Card BackRotated" src="./card-back.png" alt="Card Back" />
+                </button>
             </div>
         </div>
+        <script>
+            rotateBackCard();
+        </script>
     </body>
 </html>

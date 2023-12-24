@@ -11,7 +11,7 @@ function rotateFrontCard () {
 
         const backCardButton = document.getElementById("BackCardButton");
         removeClass(backCardButton, "Hidden");
-    }, 500);
+    }, 100);
 };
 
 function rotateBackCard () {
@@ -27,7 +27,7 @@ function rotateBackCard () {
 
         const frontCardButton = document.getElementById("FrontCardButton");
         removeClass(frontCardButton, "Hidden");
-    }, 500);
+    }, 100);
 };
 
 function addClass (element, className) {
